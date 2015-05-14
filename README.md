@@ -1,10 +1,13 @@
 # csv_compare
 CSV comparison
 Php class for comparison 2 csv files by one column.
-How to use:
+
+<strong>How to use:</strong>
 create folder with name 'files' then add next lines to your php document
+
 require_once('class.FilesCompare.php');
 $compare = new FilesCompare();
+
 /**
      * Compare 2 csv files for changes by values of 1 column
      *
