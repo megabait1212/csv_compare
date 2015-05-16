@@ -1,5 +1,4 @@
 # csv_compare
-CSV comparison
 Php class for comparison 2 csv files by one column.
 
 <strong>How to use:</strong>
