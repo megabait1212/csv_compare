@@ -4,9 +4,11 @@ Php class for comparison 2 csv files by one column.
 <strong>How to use:</strong>
 create folder with name 'files' then add next lines to your php document
 
+```
 require_once('class.FilesCompare.php');
-
 $compare = new FilesCompare();
+$compare->compareFiles($file1, $file2, $prefix = '', $same = true, $file1_column_name, $file2_column_name, $searchIn = '');
+```
 
      * Compare 2 csv files for changes by values of 1 column
      * @param string $file1 Path to previous version of csv file
@@ -19,5 +21,3 @@ $compare = new FilesCompare();
      * @param string $searchIn which file use for search, possible values $file1, $file2 or both. 
      * If set to one file it will output 1 csv file with data of parent file. If it set to both it will output data of both files
      * @return return csv file with changes (new and deleted) or with the same values
-     
-$compare->compareFiles($file1, $file2, $prefix = '', $same = true, $file1_column_name, $file2_column_name, $searchIn = '');
