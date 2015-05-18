@@ -78,7 +78,10 @@ class FilesCompare {
             $new = fopen('./files/' . $prefix . 'update-' . $today . '.csv', 'w');
             $br = "\n";
             foreach ($updated as $update) {
-                fwrite($new, '"' . implode('";"', array_values($update)) . '"' . $br);
+                //var_dump($update);
+                //$update = str_replace('"', '""', $update);
+                //fwrite($new, '"' . implode('";"', array_values($update)) . '"' . $br);
+                fputcsv($new, array_values($update), ';');
             }
             fclose($new);
         }
@@ -124,6 +127,7 @@ class FilesCompare {
     protected function _getHeader($file) {
         $file = fopen('./files/' . $file, 'r');
         return $header = fgetcsv($file, 0, ';');
+        fclose($file);
     }
 
     /**
@@ -136,13 +140,18 @@ class FilesCompare {
         $header = $this->_getHeader($file);
         $file = fopen('./files/' . $file, 'r');
         $data = array();
-        while ($row = fgetcsv($file, 0, ';')) {
+        if (!empty($file)) {
+            while (($row = fgetcsv($file, 0, ';')) !== FALSE) {
+                //var_dump(array_combine($header, $row));
             $arr = array_combine($header, $row);
             foreach ($header as $i => $col) {
                 $arr[$col] = $row[$i];
             }
             $data[] = $arr;
         }
+        }
+        fclose($file);
+
         return $data;
     }
 
