@@ -1,7 +1,7 @@
 # csv_compare
 Php class for comparison 2 csv files by one column.
 
-<strong>How to use:</strong>
+**How to use:**
 create folder with name 'files' then add next lines to your php document
 
 ```
@@ -21,3 +21,7 @@ $compare->compareFiles($file1, $file2, $prefix = '', $same = true, $file1_column
      * @param string $searchIn which file use for search, possible values $file1, $file2 or both. 
      * If set to one file it will output 1 csv file with data of parent file. If it set to both it will output data of both files
      * @return return csv file with changes (new and deleted) or with the same values
+
+**TODO**
+* Custom delimiter, when read files and output file
+* GUI
